@@ -1,0 +1,80 @@
+/* luanti-gate — thème de l'interface d'administration.
+   Reprend l'accent teal des pages publiques, mais en plus sobre :
+   neutre, dense, sans fioritures. Superposé à Pico CSS v2.1. */
+
+[data-theme="light"] {
+  --pico-primary:                  #1f9d8f;
+  --pico-primary-background:       #1f9d8f;
+  --pico-primary-border:           #1f9d8f;
+  --pico-primary-underline:        rgba(31, 157, 143, .5);
+  --pico-primary-hover:            #17786d;
+  --pico-primary-hover-background: #17786d;
+  --pico-primary-hover-border:     #17786d;
+  --pico-primary-focus:            rgba(31, 157, 143, .35);
+  --pico-primary-inverse:          #ffffff;
+
+  --pico-background-color:         #f3f4f6;
+  --pico-color:                    #243049;
+  --pico-border-radius:            10px;
+}
+
+main { max-width: 920px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.25rem; }
+
+/* ---- Cartes ---- */
+article {
+  background: #fff;
+  border: 1px solid #e3e5ea;
+  box-shadow: 0 1px 3px rgba(36, 48, 73, .05);
+}
+
+/* ---- Barre de navigation ---- */
+.admin-nav {
+  display: flex; align-items: center; gap: .2rem; flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid #e3e5ea;
+  border-radius: 12px;
+  padding: .4rem;
+  margin-bottom: 1.75rem;
+}
+.admin-nav a {
+  padding: .45rem .85rem;
+  border-radius: 8px;
+  color: #5c6680;
+  font-weight: 600; font-size: .95rem;
+  text-decoration: none;
+}
+.admin-nav a:hover { background: #f3f4f6; color: var(--pico-primary); }
+.admin-nav .spacer { margin-left: auto; }
+.admin-nav form { margin: 0; }
+.admin-nav button { width: auto; margin: 0; padding: .4rem .8rem; font-size: .9rem; }
+
+/* ---- Tableau de bord : statistiques ---- */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.stat {
+  background: #fff;
+  border: 1px solid #e3e5ea;
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+}
+.stat .label { color: #5c6680; font-size: .9rem; font-weight: 600; }
+.stat .value { font-size: 2.2rem; font-weight: 800; color: var(--pico-primary); }
+
+@media (max-width: 540px) {
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* ---- Historique : détail d'un contrôle ---- */
+.score-pass { color: #2fae66; font-weight: 700; }
+.score-fail { color: #d64550; font-weight: 700; }
+
+/* Carte d'une question ratée : bordure rouge. */
+article.q-incorrect { border-color: #d64550; }
+
+/* Réponse juste et choisie : vert. */
+.answer-correct-chosen { color: #2fae66; font-weight: 700; }
+/* Réponse qu'il aurait fallu choisir (ratée) : vert clair. */
+.answer-correct-missed { color: #5fb98a; font-weight: 700; }
+/* Réponse choisie mais fausse : rouge. */
+.answer-wrong-chosen   { color: #d64550; font-weight: 700; }
